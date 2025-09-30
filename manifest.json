@@ -1,0 +1,10 @@
+{
+	"id": "components-lock",
+	"name": "Components Lock",
+	"version": "0.0.1",
+	"minAppVersion": "1.8.3",
+	"description": "Provides Notion-like page locking functionality for the Components plugin.",
+	"author": "zereazheng",
+	"authorUrl": "https://github.com/zereazheng",
+	"isDesktopOnly": false
+}

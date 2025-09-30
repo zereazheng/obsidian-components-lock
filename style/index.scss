@@ -1,0 +1,218 @@
+body.components-lock--is-locked {
+
+    // 容器外的悬浮指示器，包括但不限于组件右上角设置按钮、
+    div[data-floating-ui-portal] {
+
+        // 浮动设置按钮
+        .components--FloatingSettings {
+            display: none;
+        }
+
+        // 列表项悬浮时左侧的操作按钮
+        .components--ListDynamicDataViewItemMenu {
+            display: none;
+        }
+    }
+}
+
+// 数据视图
+.components-lock--hide-default {
+
+    // 每个组件上方的 ... 悬浮菜单
+    .components--ComponentFloatingMenus {
+        display: none;
+    }
+
+    // 网格布局
+    .components--GridLayoutComponents {
+
+        // 悬浮边框高亮
+        .components--GridLayoutItem:hover {
+            border-color: transparent;
+        }
+
+        // 左/右下角的缩放指示器
+        .react-resizable-handle {
+            display: none;
+        }
+    }
+
+    // 标签布局
+    .components--TabLayout {
+
+        // 标签页/垂直标签页的添加按钮
+        button.components--TabHeaderMenuItem {
+            display: none;
+        }
+
+        // 垂直标签页添加按钮容器
+        .components--VerticalTabHeaderButtons {
+            display: none;
+        }
+
+        .components--TabLayoutListWrapper {
+
+            // 标签页右侧操作按钮或设置按钮
+            .components--DynamicDataViewHeaderMenus,
+            .components--GlobalTabMenuContainer {
+                display: none;
+            }
+        }
+    }
+
+    // 数据视图
+    .components--component-dynamicDataView {
+
+        // 数据视图头部菜单
+        .components--DynamicDataViewHeader {
+
+            // 右侧功能按钮，如搜索、筛选、设置、新建等
+            .components--DynamicDataViewHeaderMenus {
+                display: none;
+            }
+        }
+
+        // 分组
+        .components--DynamicDataView-Groups {
+
+            // 右上角新建/更多图标
+            .components--DynamicDataViewGroupHeaderMenus {
+                display: none;
+            }
+
+            // 底部新建分组按钮
+            .components--DynamicDataView-GroupAddMenu {
+                display: none;
+            }
+        }
+
+
+        // 表格
+        .components--TableDynamicDataView {
+
+            .components--TableColumnHeader:hover .components--TableColumnHeaderFilterButton {
+                display: none;
+            }
+
+            .ag-row:hover {
+
+                // 文件名列右侧的编辑/更多操作按钮
+                .components--DynamicDataView-PageContextMenu {
+                    display: none;
+                }
+
+                // 序号列移动指示器
+                .ag-drag-handle.ag-row-drag {
+                    opacity: 0;
+                }
+
+                // 序号列复选框
+                .components--TableIndexCellContainer .components--TableRowSelectionInput {
+                    display: none;
+                }
+
+                // 序号列序号
+                .components--TableIndexCellContainer .components--TableIndexValue {
+                    display: block;
+                }
+            }
+
+            // 列宽调整指示器
+            .ag-ltr .ag-header-cell-resize {
+                display: none;
+            }
+
+            // 序号列顶部全选复选框
+            .components--TableColumnSelectionHeader:hover .components--input {
+                opacity: 0;
+            }
+        }
+
+
+        // 画廊
+        .components--GalleryDynamicDataView {
+
+            // 鼠标悬浮卡片右上角编辑/更多操作按钮
+            .components--DynamicDataView-PageCard .components--DynamicDataView-PageContextMenu {
+                display: none;
+            }
+        }
+
+        // 看板
+        .components--KanbanDynamicDataView {
+
+
+            .components--KanbanDynamicDataView-Group {
+
+                // 分组右上角新建/更多操作按钮
+                .components--DynamicDataViewGroupHeaderMenus {
+                    display: none;
+                }
+
+                // 鼠标悬浮卡片右上角编辑/更多操作按钮
+                .components--DynamicDataView-PageCard .components--DynamicDataView-PageContextMenu {
+                    display: none;
+                }
+
+                // 分组底部新建按钮
+                .components-NewItemButton {
+                    display: none;
+                }
+            }
+
+            // 右侧添加分组按钮
+            .components--DynamicDataView-GroupAddMenu {
+                display: none;
+            }
+        }
+
+        // 甘特图
+        .components--TimelineView {
+
+            .components--TimelineRecordsTableRowIndex {
+
+                // 序号列复选框
+                .components--TimelineRecordsTableRowIndexCheckbox {
+                    display: none;
+                }
+
+                // 序号列序号
+                .components--TimelineRecordsTableRowIndexValue {
+                    display: block;
+                }
+            }
+
+            // 鼠标悬浮任务项时左侧更多操作按钮
+            .components--TimelineTask .components--GanttTaskItemContextMenu {
+                display: none;
+            }
+        }
+
+        // 日历
+        .components--CalendarDynamicDataView {
+
+            // 卡片右上角更多操作按钮
+            .components--DynamicDataView-PageCard:hover .components--DynamicDataView-PageContextMenu {
+                display: none;
+            }
+        }
+    }
+
+    // 附件
+    .components--AttachmentsComponentContent {
+
+        // 附件项悬浮右上角三个操作按钮
+        .components--AttachmentsItem:hover .components--AttachmentsItemContextMenu {
+            display: none;
+        }
+    }
+
+    // Markdown 组件
+    .components--component-markdown {
+
+        // 右上角两个按钮
+        &:hover .components--MarkdownComponentContextMenu {
+            display: none;
+        }
+    }
+}
