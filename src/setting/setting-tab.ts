@@ -88,5 +88,17 @@ export default class ComponentsLockSettingTab extends PluginSettingTab {
                     this.plugin.toggleEventHandler(FileMenuHandler, this.plugin.showFileMenuOption);
                 });
             });
+
+        new Setting(containerEl)
+            .setName(t("setting.hide-official-lock-button.name"))
+            .setDesc(t("setting.hide-official-lock-button.desc"))
+            .addToggle(toggle => {
+                toggle.setValue(settings.hideOfficialLockButton);
+                toggle.onChange(async (value) => {
+                    settings.hideOfficialLockButton = value;
+                    await this.plugin.saveSettings();
+                    this.plugin.hideOrShowOfficialLockButton();
+                });
+            });
     }
 }

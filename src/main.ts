@@ -29,6 +29,7 @@ export default class ComponentsLockPlugin extends Plugin {
 
         this.app.workspace.onLayoutReady(() => {
             this.initEventDispatcherAndHandler();
+            this.hideOrShowOfficialLockButton();
         });
     }
 
@@ -158,6 +159,15 @@ export default class ComponentsLockPlugin extends Plugin {
         }
         return false;
     }
+
+    public hideOrShowOfficialLockButton(): void {
+        const flagClass = "components-lock--hide-official-lock-button";
+        if (this.settings.hideOfficialLockButton) {
+            document.body.addClass(flagClass);
+        } else {
+            document.body.removeClass(flagClass);
+        }
+    }
 }
 
 interface ComponentsLockPluginSettings extends NormalSettings, IndependentSettings { }
@@ -170,6 +180,7 @@ interface NormalSettings {
     showTitleBarButton: ShowPlatform;
     showStatusBarButton: boolean;
     showFileMenuOption: ShowPlatform;
+    hideOfficialLockButton: boolean;
 }
 
 /**
@@ -184,5 +195,6 @@ const DEFAULT_SETTINGS: ComponentsLockPluginSettings = {
     saveFollowDevice: false,
     showTitleBarButton: ShowPlatform.ALL,
     showStatusBarButton: true,
-    showFileMenuOption: ShowPlatform.NONE
+    showFileMenuOption: ShowPlatform.NONE,
+    hideOfficialLockButton: true
 }

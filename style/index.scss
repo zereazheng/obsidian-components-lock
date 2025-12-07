@@ -15,6 +15,15 @@ body.components-lock--is-locked {
     }
 }
 
+body.components-lock--hide-official-lock-button {
+    .workspace-leaf-content {
+        .clickable-icon[aria-label="锁定/解锁"],
+        .clickable-icon[aria-label="Lock/Unlock"] {
+            display: none;
+        }
+    }
+}
+
 // 数据视图
 .components-lock--hide-default {
 

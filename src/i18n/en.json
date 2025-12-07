@@ -14,6 +14,8 @@
     "setting.show-status-bar-button.desc": "Only available on desktop.",
     "setting.register-in-more-options.name": "Add control option in More options menu",
     "setting.register-in-more-options.desc": "Refers to the menu that appears when clicking the \"More options\" button in the top-right corner of the file.",
+    "setting.hide-official-lock-button.name": "Hide the official Lock/Unlock button",
+    "setting.hide-official-lock-button.desc": "Hide the official Lock/Unlock button in the top-right corner of the components file view.",
     "title-bar.lock-icon.tip": "Components locked\nClick to unlock",
     "title-bar.unlock-icon.tip": "Component unlocked\nClick to lock",
     "status-bar.lock-icon.tip": "Components locked",
