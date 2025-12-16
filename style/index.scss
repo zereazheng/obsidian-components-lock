@@ -1,22 +1,26 @@
-body.components-lock--is-locked {
+body:has(.components-lock--hide-default:hover) {
 
-    // 容器外的悬浮指示器，包括但不限于组件右上角设置按钮、
-    div[data-floating-ui-portal] {
-
-        // 浮动设置按钮
-        .components--FloatingSettings {
-            display: none;
-        }
-
-        // 列表项悬浮时左侧的操作按钮
-        .components--ListDynamicDataViewItemMenu {
-            display: none;
-        }
+    // 组件右上角的悬浮设置按钮
+    .components--FloatingSettings,
+    // 列表视图鼠标悬浮时数据项左侧的复选框、更多选项菜单
+    .components--ListDynamicDataViewItemMenu {
+        opacity: 0;
+        transition-delay: 0s;
     }
 }
 
+// 添加动画延迟效果，防止锁定状态下的组件，在鼠标移开后悬浮菜单突然出现后才消失
+.components--FloatingSettings,
+.components--ListDynamicDataViewItemMenu {
+    transition: opacity 0.2s ease;
+    transition-delay: 2s;
+}
+
+// components 视图下的锁定/解锁按钮
 body.components-lock--hide-official-lock-button {
+
     .workspace-leaf-content {
+
         .clickable-icon[aria-label="锁定/解锁"],
         .clickable-icon[aria-label="Lock/Unlock"] {
             display: none;
@@ -24,204 +28,102 @@ body.components-lock--hide-official-lock-button {
     }
 }
 
-// 数据视图
 .components-lock--hide-default {
 
-    // 每个组件上方的 ... 悬浮菜单
+    // 网格/列表布局组件上方的 ... 悬浮菜单
     .components--ComponentFloatingMenus {
         display: none;
     }
 
-    // 网格布局
-    .components--GridLayoutComponents {
-
-        // 悬浮边框高亮
-        .components--GridLayoutItem:hover {
-            border-color: transparent;
-        }
-
-        // 左/右下角的缩放指示器
-        .react-resizable-handle {
-            display: none;
-        }
+    // 网格布局鼠标悬浮时组件边框高亮
+    .components--GridLayoutComponents .components--GridLayoutItem:hover {
+        border-color: transparent;
     }
 
-    // 标签布局
-    .components--TabLayout {
-
-        // 标签页/垂直标签页的添加按钮
-        button.components--TabHeaderMenuItem {
-            display: none;
-        }
-
-        // 垂直标签页添加按钮容器
-        .components--VerticalTabHeaderButtons {
-            display: none;
-        }
-
-        .components--TabLayoutListWrapper {
-
-            // 标签页右侧操作按钮或设置按钮
-            .components--DynamicDataViewHeaderMenus,
-            .components--GlobalTabMenuContainer {
-                display: none;
-            }
-        }
+    // 网格布局鼠标悬浮时组件左/右下角缩放指示器
+    .components--GridItemResizeHandler {
+        display: none;
     }
 
-    // 数据视图
-    .components--component-dynamicDataView {
+    // 标签页/垂直标签页的添加组件按钮
+    .components--TabLayoutList .components--NewComponentDropdownMenuTrigger,
+    .components--VerticalTabHeaderButtons {
+        display: none;
+    }
 
-        // 数据视图头部菜单
-        .components--DynamicDataViewHeader {
+    // 标签页头部右侧的功能按钮组
+    .components--GlobalTabMenuContainer {
+        display: none;
+    }
 
-            // 右侧功能按钮，如搜索、筛选、设置、新建等
-            .components--DynamicDataViewHeaderMenus {
-                display: none;
-            }
+    // 数据视图头部菜单
+    .components--DynamicDataViewEl .components--DynamicDataViewHeaderMenus {
+        display: none;
+    }
+
+    // 数据视图标题不显示时，容器也隐藏，避免占位
+    .components--DynamicDataViewEl .components--DynamicDataViewHeaderTitle:empty {
+        display: none;
+    }
+
+    // 数据视图单条数据鼠标悬浮时的编辑、更多选项按钮组
+    .components--DynamicDataView-PageContextMenu {
+        display: none;
+    }
+
+    // 数据视图添加分组按钮
+    .components--DynamicDataView-GroupAddMenu {
+        display: none;
+    }
+
+    // 数据视图单个分组右上角的新建、更多选项按钮组
+    .components--DynamicDataViewGroupHeaderMenus {
+        display: none;
+    }
+
+    // 表格视图序号列顶部全选复选框
+    .components--TableColumnSelectionHeader>.components--input {
+        display: none;
+    }
+
+    // 表格视图列宽调整指示器
+    .ag-ltr .ag-header-cell-resize {
+        display: none;
+    }
+
+    .ag-row {
+
+        // 表格视图序号列拖拽指示器
+        .ag-drag-handle.ag-row-drag {
+            opacity: 0;
         }
 
-        // 分组
-        .components--DynamicDataView-Groups {
+        .components--TableIndexCellContainer {
 
-            // 右上角新建/更多图标
-            .components--DynamicDataViewGroupHeaderMenus {
+            // 表格视图序号列复选框
+            .components--TableRowSelectionInput {
                 display: none;
             }
 
-            // 底部新建分组按钮
-            .components--DynamicDataView-GroupAddMenu {
-                display: none;
-            }
-        }
-
-
-        // 表格
-        .components--TableDynamicDataView {
-
-            .components--TableColumnHeader:hover .components--TableColumnHeaderFilterButton {
-                display: none;
-            }
-
-            .ag-row:hover {
-
-                // 文件名列右侧的编辑/更多操作按钮
-                .components--DynamicDataView-PageContextMenu {
-                    display: none;
-                }
-
-                // 序号列移动指示器
-                .ag-drag-handle.ag-row-drag {
-                    opacity: 0;
-                }
-
-                // 序号列复选框
-                .components--TableIndexCellContainer .components--TableRowSelectionInput {
-                    display: none;
-                }
-
-                // 序号列序号
-                .components--TableIndexCellContainer .components--TableIndexValue {
-                    display: block;
-                }
-            }
-
-            // 列宽调整指示器
-            .ag-ltr .ag-header-cell-resize {
-                display: none;
-            }
-
-            // 序号列顶部全选复选框
-            .components--TableColumnSelectionHeader:hover .components--input {
-                opacity: 0;
-            }
-        }
-
-
-        // 画廊
-        .components--GalleryDynamicDataView {
-
-            // 鼠标悬浮卡片右上角编辑/更多操作按钮
-            .components--DynamicDataView-PageCard .components--DynamicDataView-PageContextMenu {
-                display: none;
-            }
-        }
-
-        // 看板
-        .components--KanbanDynamicDataView {
-
-
-            .components--KanbanDynamicDataView-Group {
-
-                // 分组右上角新建/更多操作按钮
-                .components--DynamicDataViewGroupHeaderMenus {
-                    display: none;
-                }
-
-                // 鼠标悬浮卡片右上角编辑/更多操作按钮
-                .components--DynamicDataView-PageCard .components--DynamicDataView-PageContextMenu {
-                    display: none;
-                }
-
-                // 分组底部新建按钮
-                .components-NewItemButton {
-                    display: none;
-                }
-            }
-
-            // 右侧添加分组按钮
-            .components--DynamicDataView-GroupAddMenu {
-                display: none;
-            }
-        }
-
-        // 甘特图
-        .components--TimelineView {
-
-            .components--TimelineRecordsTableRowIndex {
-
-                // 序号列复选框
-                .components--TimelineRecordsTableRowIndexCheckbox {
-                    display: none;
-                }
-
-                // 序号列序号
-                .components--TimelineRecordsTableRowIndexValue {
-                    display: block;
-                }
-            }
-
-            // 鼠标悬浮任务项时左侧更多操作按钮
-            .components--TimelineTask .components--GanttTaskItemContextMenu {
-                display: none;
-            }
-        }
-
-        // 日历
-        .components--CalendarDynamicDataView {
-
-            // 卡片右上角更多操作按钮
-            .components--DynamicDataView-PageCard:hover .components--DynamicDataView-PageContextMenu {
-                display: none;
+            // 表格视图序号列序号文本
+            .components--TableIndexValue {
+                display: block;
             }
         }
     }
 
-    // 附件
-    .components--AttachmentsComponentContent {
-
-        // 附件项悬浮右上角三个操作按钮
-        .components--AttachmentsItem:hover .components--AttachmentsItemContextMenu {
-            display: none;
-        }
+    // 看板分组底部新建按钮
+    .components--KanbanDynamicDataView-Group .components-NewItemButton {
+        display: none;
     }
 
-    // Markdown 组件
-    .components--component-markdown {
+    // Markdown 组件右上角悬浮菜单
+    .components--MarkdownComponentContextMenu {
+        display: none;
+    }
 
-        // 右上角两个按钮
-        &:hover .components--MarkdownComponentContextMenu {
-            display: none;
-        }
+    // 附件库组件数据项右上角悬浮菜单
+    .components--AttachmentsItemContextMenu {
+        display: none;
     }
 }

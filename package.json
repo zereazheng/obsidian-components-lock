@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-        "style": "sass --no-source-map --style=compressed style/index.scss styles.css",
+        "style": "sass --no-source-map style/index.scss styles.css",
 		"version": "node version-bump.mjs"
 	},
 	"keywords": [],
